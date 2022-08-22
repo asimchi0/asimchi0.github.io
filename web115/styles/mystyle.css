@@ -95,10 +95,6 @@ nav > div > a > img:first-child { padding-left: 140px; }
   margin-right: auto;
 }
 
-.new_tab {
-	target="_blank"
-}
-
 .image_float_right
 {
 	float: right;
