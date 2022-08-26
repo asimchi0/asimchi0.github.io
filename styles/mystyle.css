@@ -114,7 +114,6 @@ figcaption{
 	background-attachment: fixed;
 	background-size: 100%;
 	opacity: 0.05;
-	filter:alpha(opacity=5);
 	z-index: -1;
 }
 
