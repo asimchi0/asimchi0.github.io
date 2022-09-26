@@ -33,14 +33,14 @@
 				<h1 id="greeting">Welcome to Fizz Buzz</h1>
 			</header>
 			
-			<form action="/fizzbuzz0.html" method="POST">
+			<form id="greetingForm" action="javascript:void(0)"  method="post" onsubmit="makeChanges()">
 				<label for="firstName">First name:</label>
 				<input type="text" id="firstName" name="firstName" required><br>
 				<label for="middleName">Middle name:</label>
 				<input type="text" id="middleName" name="middleName"><br>
 				<label for="lastName">Last name:</label>
 				<input type="text" id="lastName" name="lastName" required><br>
-				<input type="submit" value="Sumbit" onclick="return makeChanges()">
+				<input type="submit" value="Sumbit">
 			</form>			
 			
 			<h2 id="loopHeader"></h2>
