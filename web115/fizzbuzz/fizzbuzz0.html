@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<!--[if lt IE 9]>
+		<script scr="http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		<link rel="stylesheet" href="../styles/default.css">
+		<title>Alexei Simchiv-Mattson | WEB-115 | Fizz Buzz 0</title>		
+	</head>
+	
+	<body>	
+		<header>			
+			<nav>
+				<div>
+					<a href="../index.html">
+						<h1>WEB-115</h1>
+					</a>
+				</div>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../introduction.html">Introduction</a></li>
+					<li><a href="../contract.html">Contract</a></li>
+					<li><a href="../brand.html">Brand</a></li>
+					<li><a href="../toc.html">TOC</a></li>	
+				</ul>
+			</nav>			
+		</header>
+	
+		<section>			
+			<header>
+				<h1 id="greeting">Welcome to Fizz Buzz</h1>
+			</header>
+			
+			<form action="/fizzbuzz0.html" method="POST">
+				<label for="firstName">First name:</label>
+				<input type="text" id="firstName" name="firstName" required><br>
+				<label for="middleName">Middle name:</label>
+				<input type="text" id="middleName" name="middleName"><br>
+				<label for="lastName">Last name:</label>
+				<input type="text" id="lastName" name="lastName" required><br>
+				<input type="submit" value="Sumbit" onclick="return makeChanges()">
+			</form>			
+			
+			<h2 id="loopHeader"></h2>
+			<div id="loopSection"></div>
+			
+		</section>
+		
+		<footer>
+			<p>
+				<a href="https://github.com/asimchi0">Github</a> |
+				<a href="https://asimchi0.github.io/">Github Page</a> |
+				<a href="https://asimchi0.github.io/web115/">Github Page web 115</a> |
+				<a href="https://www.freecodecamp.org/asimchi0">Freecodecamp</a> |
+				<a href="https://www.codecademy.com/profiles/asimchi0">CodeAcademy </a> |
+				<a href="https://jsfiddle.net/user/asimchi0/fiddles/">JSFiddle</a> |
+				<a href="https://www.linkedin.com/learning/?u=76141674">LinkedIn Learning</a>
+			</p>
+			<p>Page built by NoNameCorp</p>
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer" id = "validation_link_html">
+					<img src="../images/button_validation_html5.png"  alt="Valid HTML 5" height="31" width="88" style="border:0px;"/>
+				</a>
+			
+				<a href="https://jigsaw.w3.org/css-validator/check/referer" id = "validation_link_css">
+					<img src="../images/button_validation_css.png"  alt="Valid CSS" height="31" width="88" style="border:0px;"/>
+				</a>
+				<script>
+					document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+					document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+				</script>				
+			</p>			
+		</footer>
+		<script>
+			function makeChanges()
+			{
+				changeGreeting();
+				changeLoop();
+			}
+			
+			function changeGreeting()
+			{
+				var greetingItem = document.getElementById('greeting');
+				var firstName = document.getElementById('firstName').value;
+				var middleName = document.getElementById('middleName').value;
+				var lastName = document.getElementById('lastName').value;
+				var newGreeting = "Welcome" + " " + firstName + " " + middleName + " " + lastName + " " + "to Fizz Buzz";
+				greetingItem.textContent = newGreeting;
+				alert(newGreeting);
+			}
+			
+			function changeLoop()
+			{
+				var magicNumber = 10;
+				var message = "Beep Boop";
+				var loopText = "Beep Boop";
+				var loopHeaderItem = document.getElementById('loopHeader');
+				var loopSectionItem = document.getElementById('loopSection');
+				loopHeaderItem.textContent = message;				
+				
+				var loopLimit = prompt("How much times you like to " + message, "10");
+				
+				var result="<ol>";
+				for (let i = 1; i <= loopLimit; i++) {
+					var addition;
+					if ( i % 2 == 0 ) { addition = "Even"; } 
+					else { addition = "Odd"; }
+					result = result.concat("<li>"," ",loopText," ",addition,"</li>");
+				}
+				result = result.concat("</ol>")
+				loopSectionItem.innerHTML = result;
+			}
+		</script>
+	</body> 
+	
+
+</html> 
