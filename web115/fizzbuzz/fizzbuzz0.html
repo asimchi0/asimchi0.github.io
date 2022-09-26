@@ -86,7 +86,10 @@
 				var firstName = document.getElementById('firstName').value;
 				var middleName = document.getElementById('middleName').value;
 				var lastName = document.getElementById('lastName').value;
-				var newGreeting = "Welcome" + " " + firstName + " " + middleName + " " + lastName + " " + "to Fizz Buzz";
+				var newGreeting = "Welcome";
+				newGreeting = newGreeting.concat(" ", firstName);
+				if (middleName !== "") { newGreeting = newGreeting.concat(" ", middleName, "."); }
+				newGreeting = newGreeting.concat(" ", lastName, " ","to Fizz Buzz");				
 				greetingItem.textContent = newGreeting;
 				alert(newGreeting);
 			}
