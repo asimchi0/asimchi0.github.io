@@ -36,8 +36,8 @@
 			<form id="greetingForm" action="javascript:void(0)"  method="post" onsubmit="makeChanges()">
 				<label for="firstName">First name:</label>
 				<input type="text" id="firstName" name="firstName" required><br>
-				<label for="middleName">Middle name:</label>
-				<input type="text" id="middleName" name="middleName"><br>
+				<label for="middleInitial">Middle Initial:</label>
+				<input type="text" id="middleInitial" name="middleInitial" maxlength="1"><br>
 				<label for="lastName">Last name:</label>
 				<input type="text" id="lastName" name="lastName" required><br>
 				<input type="submit" value="Sumbit">
@@ -82,13 +82,13 @@
 			
 			function changeGreeting()
 			{
-				var greetingItem = document.getElementById('greeting');
+				var greetingItem = document.getElementById('greeting'); // this is comment
 				var firstName = document.getElementById('firstName').value;
-				var middleName = document.getElementById('middleName').value;
+				var middleInitial = document.getElementById('middleInitial').value;
 				var lastName = document.getElementById('lastName').value;
 				var newGreeting = "Welcome";
 				newGreeting = newGreeting.concat(" ", firstName);
-				if (middleName !== "") { newGreeting = newGreeting.concat(" ", middleName, "."); }
+				if (middleInitial !== "") { newGreeting = newGreeting.concat(" ", middleInitial, "."); }
 				newGreeting = newGreeting.concat(" ", lastName, " ","to Fizz Buzz");				
 				greetingItem.textContent = newGreeting;
 				return false;
