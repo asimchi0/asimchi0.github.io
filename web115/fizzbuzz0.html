@@ -92,6 +92,7 @@
 				newGreeting = newGreeting.concat(" ", lastName, " ","to Fizz Buzz");				
 				greetingItem.textContent = newGreeting;
 				alert(newGreeting);
+				return false;
 			}
 			
 			function changeLoop()
@@ -114,6 +115,7 @@
 				}
 				result = result.concat("</ol>")
 				loopSectionItem.innerHTML = result;
+				return false;
 			}
 		</script>
 	</body> 
