@@ -7,29 +7,14 @@
 		</script>
 		<![endif]-->
 		<link rel="stylesheet" href="styles/default.css">
-		<title>Alexei Simchiv-Mattson | WEB-115 | TOC</title>
+		<script src="scripts/addNavigation.js"></script>
+		<script src="scripts/addFooter.js"></script>		
+		<title>Alexei Simchiv-Mattson | WEB115 | TOC</title>
 	</head>
 	
 	<body>
-		<header>
-			<nav>
-				<div>
-					<a href="index.html">
-						<h1>WEB-115</h1>
-					</a>
-				</div>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="introduction.html">Introduction</a></li>
-					<li><a href="contract.html">Contract</a></li>
-					<li><a href="brand.html">Brand</a></li>
-					<li><a class="active" href="toc.html">TOC</a></li>
-				</ul>
-			</nav>
-		</header>
-		
+		<script>addNavigation();</script>
 		<section>
-			<h1>Alexei Simchiv-Mattson | WEB-115</h1>
 			<h2>Table Of Contents</h2>
 			<ul>
 				<li><a href="index.html">Home</a></li>
@@ -40,7 +25,8 @@
 				<li>Smarter Way to Learn
 					<ul>
 						<li><a href="swtl/swtl_examples_1_10.html">Chapters 01 - 10</a></li>
-						<li><a href="swtl/swtl_examples_11_20.html">Chapters 21 - 30</a></li>
+						<li><a href="swtl/swtl_examples_11_20.html">Chapters 11 - 20</a></li>
+						<li><a href="swtl/swtl_examples_21_30.html">Chapters 21 - 30</a></li>
 						<li>Chapters 31 - 40</li>
 						<li>Chapters 41 - 50</li>
 						<li>Chapters 51 - 60</li>
@@ -51,7 +37,7 @@
 				<li>Fizz Buzz
 					<ul>
 						<li><a href="fizzbuzz/fizzbuzz0.html">Fizz Buzz 0</a></li>
-						<li>Fizz Buzz 1</li>
+						<li><a href="fizzbuzz/fizzbuzz1.html">Fizz Buzz 1</a></li>
 						<li>Fizz Buzz 2</li>
 						<li>Fizz Buzz 3</li>
 						<li>Fizz Buzz 4</li>
@@ -60,34 +46,7 @@
 				
 			</ul>
 		</section>
-		
-		<footer>
-			<p>
-				<a href="https://github.com/asimchi0">Github</a> |
-				<a href="https://asimchi0.github.io/">Github Page</a> |
-				<a href="https://asimchi0.github.io/web115/">Github Page web 115</a> |
-				<a href="https://www.freecodecamp.org/asimchi0">Freecodecamp</a> |
-				<a href="https://www.codecademy.com/profiles/asimchi0">CodeAcademy </a> |
-				<a href="https://jsfiddle.net/user/asimchi0/fiddles/">JSFiddle</a> |
-				<a href="https://www.linkedin.com/learning/?u=76141674">LinkedIn Learning</a>
-			</p>
-			<p>Page built by NoNameCorp</p>
-			<p>
-				<a href="http://validator.w3.org/check?uri=referer" id = "validation_link_html">
-					<img src="images/button_validation_html5.png"  alt="Valid HTML 5" height="31" width="88" style="border:0px;" />
-				</a>
-			
-				<a href="https://jigsaw.w3.org/css-validator/check/referer" id = "validation_link_css">
-					<img src="images/button_validation_css.png"  alt="Valid CSS" height="31" width="88" style="border:0px;" />
-				</a>	
-				<script>
-					document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-					document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-				</script>				
-			</p>
-			
-		</footer>
-
+		<script>addFooter();</script>
 	</body> 
 	
 

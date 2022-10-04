@@ -7,69 +7,168 @@
 		</script>
 		<![endif]-->
 		<link rel="stylesheet" href="styles/default.css">
-		<title>Alexei Simchiv-Mattson | WEB-115 | Index</title>
+		<title>Alexei Simchiv-Mattson | WEB115 | Index</title>
 	</head>
 	
 	<body>
-		<header>
-			<nav>
-				<div>
-					<a href="index.html">
-						<h1>WEB-115</h1>
-					</a>
-				</div>
-				<ul>
-					<li><a class="active" href="index.html">Home</a></li>
-					<li><a href="introduction.html">Introduction</a></li>
-					<li><a href="contract.html">Contract</a></li>
-					<li><a href="brand.html">Brand</a></li>
-					<li><a href="toc.html">TOC</a></li>
-				</ul>
-			</nav>
-		</header>
+
+		<script>
+			var pages = { // declaring navigation pages; key - name on Page : value - link to page
+				Home : "index.html",
+				Introduction : "introduction.html",
+				Contract : "contract.html",
+				Brand : "brand.html",
+				TOC : "toc.html"
+			}
+			var leveNavlOffset = "";
+
+			function addLogo(navigation) // adding logo (in this case just test with link to starting page)
+			{
+				//var navigation = document.getElementById("navigation"); // get element with navigation id
+				
+				var logo = document.createElement("div"); // create div element
+				var a = document.createElement("a");			
+				var logoLink  = leveNavlOffset + "index.html";
+
+
+				a.setAttribute("href", logoLink); // setting ling to index page
+				var headerTemp = document.createElement("h1");
+				headerTemp.appendChild(document.createTextNode("Alexei's WEB115"));
+				a.appendChild(headerTemp); // adding created elelemnts together
+				logo.appendChild(a);
+				navigation.appendChild(logo);
+			}
+			function addNavigationBar(navigation)
+			{
+				//var navigation = document.getElementById("navigation");
+				var navUl = document.createElement("ul");
+				for(var key in pages)
+				{
+					var value = pages[key];				
+					var navLi = document.createElement("li")
+					var a = document.createElement("a");
+					
+					value = leveNavlOffset + value;
+
+					a.setAttribute("href", value);
+					
+					if (location.pathname.indexOf(value) > -1) { a.setAttribute("class", "active"); } // finding if current page contains added link, if yes add class for CSS
+					
+					a.appendChild(document.createTextNode(key));
+					navLi.appendChild(a);
+					navUl.appendChild(navLi);				
+				}			
+				navigation.appendChild(navUl);
+			}
+			function addNavigation(level = 0)
+			{
+				for (var i = 0; i < level; i++)
+				{
+					leveNavlOffset = "../" + leveNavlOffset;
+				}	
+				
+				var body = document.body;
+				var headerNav = document.createElement("header");
+				var navigation = document.createElement("nav");
+				
+				addLogo(navigation, level);
+				addNavigationBar(navigation, level);
+				
+				headerNav.appendChild(navigation);			
+				body.appendChild(headerNav);
+			}
+			addNavigation();		
+		</script>
 		
 		<section>	
-			<h1>Welcome to WEB-115 Web Markup and Scripting</h1>
+			<h1>Welcome to WEB115 Web Markup and Scripting</h1>
 			<h2>Hello, It is Alexei.</h2>
-			<p>This page is hosted by Github</p>
-			  <p id="external">Hi</p>
-
-			  <!-- This first -->
-			  <script src="/scripts/hello.js"></script>
-
-			  <!-- Then you can call it -->
-			  <script>
-				externalFunction();
-			  </script>
-			
+			<p>This page is hosted by Github</p>			
 		</section>
-		
-		<footer>
-			<p>
-				<a href="https://github.com/asimchi0">Github</a> |
-				<a href="https://asimchi0.github.io/">Github Page</a> |
-				<a href="https://asimchi0.github.io/web115/">Github Page web 115</a> |
-				<a href="https://www.freecodecamp.org/asimchi0">Freecodecamp</a> |
-				<a href="https://www.codecademy.com/profiles/asimchi0">CodeAcademy </a> |
-				<a href="https://jsfiddle.net/user/asimchi0/fiddles/">JSFiddle</a> |
-				<a href="https://www.linkedin.com/learning/?u=76141674">LinkedIn Learning</a>
-			</p>
-			<p>Page built by NoNameCorp</p>
-			<p>
-				<a href="http://validator.w3.org/check?uri=referer" id = "validation_link_html">
-					<img src="images/button_validation_html5.png"  alt="Valid HTML 5" height="31" width="88" style="border:0px;" />
-				</a>
+
+		<script>
+			var footerLinks = {
+				"Github" : "https://github.com/asimchi0",
+				"Github Page" : "https://asimchi0.github.io/",
+				"Github Page WEB115" : "https://asimchi0.github.io/web115/",
+				"Freecodecamp" : "https://www.freecodecamp.org/asimchi0",
+				"CodeAcademy" : "https://www.codecademy.com/profiles/asimchi0",
+				"JSFiddle" : "https://jsfiddle.net/user/asimchi0/fiddles/",
+				"LinkedIn Learning" : "https://www.linkedin.com/learning/?u=76141674"
+			};
+			var levelFooterOffset = "";
+
+			function addValImage(src,alt)
+			{
+				var img = document.createElement("img");
+				img.setAttribute("src",src);
+				img.setAttribute("alt",alt);
+				img.setAttribute("height","31");
+				img.setAttribute("width","88");
+				img.setAttribute("style","border:0px;");
+				return img;
+			}
+
+			function addValidation(footer)
+			{
+				var validation = document.createElement("div");
+				var html = document.createElement("a");
+				html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href)
+				html.appendChild(addValImage(levelFooterOffset +"images/button_validation_html5.png", "Valid HTML 5"));
+				var css = document.createElement("a");
+				css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+				css.appendChild(addValImage(levelFooterOffset + "images/button_validation_css.png", "Valid CSS"));
+				validation.appendChild(html);
+				validation.appendChild(css);
+				footer.appendChild(validation)
+			}
+
+			function addDesignBy(footer)
+			{
+				var design = document.createElement("div");
+				design.appendChild(document.createTextNode("Page built by NoNameCorp"));
+				footer.appendChild(design);
+			}
+
+			function addLinks(footer)
+			{
+				var links = document.createElement("div");
+				// extra code to not add separator for last element.
+				var dictLength = Object.keys(footerLinks).length;
+				var lastkey = Object.keys(footerLinks)[dictLength-1];
+				
+				for (var key in footerLinks)
+				{
+					var value = footerLinks[key];
+					var a = document.createElement("a");
+					a.setAttribute("href",value);
+					a.appendChild(document.createTextNode(key));				
+					links.appendChild(a);
+					if(key != lastkey) links.appendChild(document.createTextNode(" | "));
+				}
+				footer.appendChild(links);
+			}
+
+			function addFooter(level = 0)
+			{
+				for (var i = 0; i < level; i++)
+				{
+					levelFooterOffset = "../" + levelFooterOffset;
+				}	
+				
+				var body = document.body;
+				var footer = document.createElement("footer");
+				addLinks(footer);
+				footer.appendChild(document.createElement("br"));
+				footer.appendChild(document.createElement("br"));
+				addDesignBy(footer);
+				footer.appendChild(document.createElement("br"));
+				addValidation(footer, level);			
+				body.appendChild(footer);
+			}
 			
-				<a href="https://jigsaw.w3.org/css-validator/check/referer" id = "validation_link_css">
-					<img src="images/button_validation_css.png"  alt="Valid CSS" height="31" width="88" style="border:0px;" />
-				</a>	
-				<script>
-					document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-					document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-				</script>				
-			</p>
-			
-		</footer>
+			addFooter();
+		</script>
 
 	</body> 
 	

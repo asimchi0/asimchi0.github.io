@@ -7,71 +7,77 @@
 		</script>
 		<![endif]-->
 		<link rel="stylesheet" href="../styles/default.css">
-		<title>Alexei Simchiv-Mattson | WEB-115 | Examples 11-20</title>
+		<script src="../scripts/addNavigation.js"></script>
+		<script src="../scripts/addFooter.js"></script>
+		<title>Alexei Simchiv-Mattson | WEB115 | Examples 11-20</title>
 	</head>
 	
 	<body>
-		<header>
-			<nav>
-				<div>
-					<a href="../index.html">
-						<h1>WEB-115</h1>
-					</a>
-				</div>
-				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../introduction.html">Introduction</a></li>
-					<li><a href="../contract.html">Contract</a></li>
-					<li><a href="../brand.html">Brand</a></li>
-					<li><a href="../toc.html">TOC</a></li>					
-				</ul>
-			</nav>
-		</header>
-		
+		<script>addNavigation(1);</script>		
 		<section>
-			<h1>Alexei Simchiv-Mattson | WEB-115</h1>
+			<h1>A Smarter Way To Learn</h1>
 			<h2>Examples for Chpater 11 - 20</h2>
+			<h3>Array example</h3>
+			<p id="array"></p>
+			<h3>Loop example</h3>
+			<p id="loops"></p>
 			<script>
-				<!-- Chapter 11 - Comparison example -->
-				<!-- Chapter 12 - if else example -->
-				<!-- Chapter 13 - Testing set example -->
-				<!-- Chapter 14 - nested if example -->
-				<!-- Chapter 15 - Arrays example -->
-				<!-- Chapter 16 - Arrays example -->
-				<!-- Chapter 17 - Arrays example -->
-				<!-- Chapter 18 - for example -->
-				<!-- Chapter 19 - for example -->
-				<!-- Chapter 20 - nested for example -->				
+				<!-- Chapter 11 - Comparison operators -->
+				<!-- Chapter 12 - if...else and else if statements -->
+				<!-- Chapter 13 - Testing sets of conditions -->
+				<!-- Chapter 14 - if statements nested -->
+				var firstValue = prompt("Enter first value", 3);
+				var secondValue = prompt("Enter first value", 5);
+				var thirdValue = prompt("Enter first value", 9);
+				if (firstValue < secondValue) 
+				{
+					if (firstValue < thirdValue) { alert("First value is smallest"); }					
+					else { alert("First value is in the middle"); }
+				}
+				else
+				{
+					if(firstValue > thirdValue) { alert("First value is biggest"); }
+					else { alert("First value is in the middle"); }
+				}
+				<!-- Chapter 15 - Arrays -->
+				<!-- Chapter 16 - Arrays: adding and removing elements -->
+				<!-- Chapter 17 - Arrays: removing, inserting, and extracting elements -->
+				var array = [2, 9];
+				array.pop();
+				array.push(7, 4 ,2);
+				array.shift();
+				array.unshift(1, 3);
+				array.splice(3, 0 ,9 ,3 , 5);
+				var arrayExample = document.getElementById("array");
+				arrayExample.innerHTML = array;
+				<!-- Chapter 18 - for loops -->
+				<!-- Chapter 19 - for loops: flags, Booleans, array length, and loopus interruptus -->
+				<!-- Chapter 20 - for loops nested -->
+				var fancy = ["Fancy","array","element"];
+				var arrayExample = document.getElementById("loops");
+				var uList = document.createElement("ul");				
+				for (var i = 0; i < array.length; i++)
+				{
+					var listItem = document.createElement("li");	
+					var massage="";
+					for (var j = 0; j < fancy.length; j++)
+					{
+						massage = massage + " " + fancy[j];
+					}
+					massage = massage + " " + (i+1) + " : " + array[i];
+					if(i == 4) 
+					{
+						massage = "Loops is too long, aborting"; 
+						listItem.appendChild(document.createTextNode(massage));					
+						uList.appendChild(listItem);
+						break;
+					} 
+					listItem.appendChild(document.createTextNode(massage));					
+					uList.appendChild(listItem);					
+				}
+				arrayExample.appendChild(uList);
 			</script>
 		</section>
-		
-		<footer>
-			<p>
-				<a href="https://github.com/asimchi0">Github</a> |
-				<a href="https://asimchi0.github.io/">Github Page</a> |
-				<a href="https://asimchi0.github.io/web115/">Github Page web 115</a> |
-				<a href="https://www.freecodecamp.org/asimchi0">Freecodecamp</a> |
-				<a href="https://www.codecademy.com/profiles/asimchi0">CodeAcademy </a> |
-				<a href="https://jsfiddle.net/user/asimchi0/fiddles/">JSFiddle</a> |
-				<a href="https://www.linkedin.com/learning/?u=76141674">LinkedIn Learning</a>
-			</p>
-			<p>Page built by NoNameCorp</p>
-			<p>
-				<a href="http://validator.w3.org/check?uri=referer" id = "validation_link_html">
-					<img src="../images/button_validation_html5.png"  alt="Valid HTML 5" height="31" width="88" style="border:0px;" />
-				</a>
-				<a href="https://jigsaw.w3.org/css-validator/check/referer" id = "validation_link_css">
-					<img src="../images/button_validation_css.png"  alt="Valid CSS" height="31" width="88" style="border:0px;" />
-				</a>	
-				<script>
-					document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-					document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-				</script>				
-			</p>
-			
-		</footer>
-
+		<script>addFooter(1);</script>
 	</body> 
-	
-
 </html> 
