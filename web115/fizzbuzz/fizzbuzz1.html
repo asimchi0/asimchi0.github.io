@@ -55,11 +55,11 @@
 				var loopSectionItem = document.getElementById('loopSection');
 				loopHeaderItem.textContent = message;				
 				
-				var loopLimit = 140; //prompt("How much times you like to " + message, "10");
+				var loopLimit = 140;
 				
 				var uList = document.createElement("ol");			
 				
-				//var result="<ol>";
+
 				for (let i = 1; i <= loopLimit; i++) 
 				{
 					var listItem = document.createElement("li");					
@@ -69,11 +69,10 @@
 					else if ( i % 5 == 0 ) { addition = message5; } 
 					else { addition = message; }
 					listItem.appendChild(document.createTextNode(addition));
-					//result = result.concat("<li>"," ",message," ",addition,"</li>");
+
 					uList.appendChild(listItem);
 				}
-				//result = result.concat("</ol>")
-				//loopSectionItem.innerHTML = result;
+
 				loopSectionItem.appendChild(uList);
 				return false;
 			}
