@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<!--[if lt IE 9]>
+		<script scr="http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		<link rel="stylesheet" href="../styles/default.css">
+		<script src="../scripts/addNavigation.js"></script>
+		<script src="../scripts/addFooter.js"></script>		
+		<title>Alexei Simchiv-Mattson | WEB115 | Fizz Buzz 2</title>		
+	</head>
+	
+	<body>	
+		<script>addNavigation(1);</script>
+		<section>			
+			<header>
+				<h1 id="greeting">Welcome to Fizz Buzz</h1>
+			</header>
+<!--			<input type="submit" value="Sumbit"> -->
+			<h2 id="loopHeader"></h2>
+			<div id="loopSection"></div>
+			
+		</section>
+		<script>addFooter(1);</script>
+
+		<script>
+			function makeChanges()
+			{
+				changeGreeting();
+				changeLoop();
+			}
+			
+			function changeGreeting()
+			{
+				var greetingItem = document.getElementById('greeting'); // this is comment
+				var firstName = document.getElementById('firstName').value;
+				var middleInitial = document.getElementById('middleInitial').value;
+				var lastName = document.getElementById('lastName').value;
+				var newGreeting = "Welcome";
+				newGreeting = newGreeting.concat(" ", firstName);
+				if (middleInitial !== "") { newGreeting = newGreeting.concat(" ", middleInitial, "."); }
+				newGreeting = newGreeting.concat(" ", lastName, " ","to Fizz Buzz");				
+				greetingItem.textContent = newGreeting;
+				return false;
+			}
+			
+			function changeLoop()
+			{
+				var message = "Beep";
+				var message3 = "Boop";
+				var message5 = "Zap";
+				var loopHeaderItem = document.getElementById('loopHeader');
+				var loopSectionItem = document.getElementById('loopSection');
+				loopHeaderItem.textContent = message;				
+				
+				var loopLimit = 140;
+				
+				var uList = document.createElement("ol");			
+				
+				
+				var x = prompt("Enter first number","3");
+				var y = prompt("Enter second number","5");
+				
+				for (let i = 1; i <= loopLimit; i++) 				
+				{
+
+					var listItem = document.createElement("li");					
+					var addition;
+					if ( checkDivision (i, x) && checkDivision (i, y) ) { addition = message3 + " " + message5; }
+					else if ( checkDivision (i, x) ) { addition = message3; } 
+					else if ( checkDivision (i, y) ) { addition = message5; } 
+					else { addition = message; }
+					listItem.appendChild(document.createTextNode(addition));
+
+					uList.appendChild(listItem);
+				}
+
+				loopSectionItem.appendChild(uList);				
+			}
+			function checkDivision(x, y)
+			{
+				return (x % y == 0);
+			}
+			changeLoop();
+		</script>
+	</body> 
+	
+
+</html> 
