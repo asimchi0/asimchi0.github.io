@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<!--[if lt IE 9]>
+		<script scr="http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		<link rel="stylesheet" href="../styles/default.css">
+		<script src="../scripts/jquery-3.6.1.min.js"></script>
+		<script src="../scripts/addNavigation.js"></script>
+		<script src="../scripts/addFooter.js"></script>		
+		<title>Alexei Simchiv-Mattson | WEB115 | Fizz Buzz 2</title>		
+	</head>
+	
+	<body>	
+		<script>addNavigation(1);</script>
+		<section>			
+			<header>
+				<h1 id="greeting">Welcome to Fizz Buzz</h1>
+			</header>
+			
+			<form id="greetingForm" action="javascript:void(0)"  method="post">
+				<label for="firstName">First name:</label>
+				<input type="text" id="firstName" name="firstName" required><br>
+				<label for="middleInitial">Middle Initial:</label>
+				<input type="text" id="middleInitial" name="middleInitial" maxlength="1"><br>
+				<label for="lastName">Last name:</label>
+				<input type="text" id="lastName" name="lastName" required><br>
+				<label for="count">Count:</label>
+				<input type="number" id="count" name="count" value="140" min="10" max="140" required><br>
+				<label for="defaultWord">Default word :</label>
+				<input type="text" id="defaultWord" name="defaultWord"><br>
+				<label>Enter number : word pairs</label><br>
+				<div id="numberText">
+					<input type="number" id="number" name="number" value="3"> :
+					<input type="text" id="word" name="word"><br>
+				</div>
+				<div id="numberText">
+					<input type="number" id="number" name="number" value="5"> :
+					<input type="text" id="word" name="word"><br>
+				</div>
+				<div id="numberText">
+					<input type="number" id="number" name="number" value="7"> :
+					<input type="text" id="word" name="word"><br>
+				</div>
+				<input type="button" id="addMore" value="Add more"><br>
+				<input type="button" id="remove" value="Remove"><br>
+				
+				<input type="submit" value="Sumbit">
+				
+			</form>	
+
+			<h2 id="loopHeader"></h2>
+			<div id="loopSection"></div>
+			
+		</section>
+		<script>addFooter(1);</script>
+
+		<script>
+			const words = ["Boop", "Zap", "BANG!", "Test", "Taste", "Food", "Bee", "Dog", "Cat", "Bird", "I", "Run", "Out", "Of", "Ideas", "Nope", "None", "Nothing", "Still", "Zero", "Do", "Not", "Expect", "More", "Words", "Wait", "Minute", "Something", "Anything", "Everything", "Stop", "Clicking!", "Nooo", "Sdfghdf"];
+			
+			const defaultMessage = "Beep";
+			
+			const defaultCount = 125;
+		
+			function makeChanges()
+			{
+				changeGreeting();
+				changeLoop();
+			}
+			
+			function changeGreeting()
+			{
+				let greetingItem = document.getElementById('greeting'); // this is comment
+				let firstName = document.getElementById('firstName').value;
+				let middleInitial = document.getElementById('middleInitial').value;
+				let lastName = document.getElementById('lastName').value;
+				let newGreeting = "Welcome";
+				newGreeting = newGreeting.concat(" ", firstName);
+				if (middleInitial !== "") { newGreeting = newGreeting.concat(" ", middleInitial, "."); }
+				newGreeting = newGreeting.concat(" ", lastName, " ","to Fizz Buzz");				
+				greetingItem.textContent = newGreeting;
+				return false;
+			}
+			
+			function collectNumberWordPairs() {
+				let numberWordPairs = {};
+				
+				
+				// it works, but it should be rewritten to reflect changed structure of grouping with div element.
+				$('input[id=number]').each(function() { // select all element with id number workaround from direct id selector
+				
+					let number = Number($(this).val()); // convert to number, '' converts into 0
+					
+					if (number) { // have number 
+						
+						let word = $(this).next().val(); // collect word
+						
+						if (word) { // have word
+							numberWordPairs[number] = word; // add new pair
+						}
+					}
+				})
+				
+				/*
+				//DEBUG
+				for (let [key, value] of Object.entries(numberWordPairs)) {
+					alert(key + " : " + value);
+				}
+				*/
+				
+				return numberWordPairs;
+			}
+			
+			function changeLoop()
+			{			
+				let message =  $('#defaultWord').val();
+				
+				//let divisorToMessage = {3 : "Boop", 5 : "Zap", 7 : "BANG!"}; // default
+				
+				let divisorToMessage = collectNumberWordPairs(); // collect values;
+				
+				let loopHeaderItem = document.getElementById('loopHeader');
+				let loopSectionItem = document.getElementById('loopSection');
+				loopHeaderItem.textContent = message;				
+				
+				let loopLimit = $('#count').val();				
+				
+				let uList = document.createElement("ol");			
+				
+				for (let i = 1; i <= loopLimit; i++) 				
+				{
+					let listItem = document.createElement("li");					
+					let addition = "";
+					for (let [key, value] of Object.entries(divisorToMessage)) {
+						 if (checkDivision (i, key)) {
+							addition = addition.concat(" ", value);
+						}
+					}
+					if (addition === "") {
+						addition = message;
+					}
+					
+					listItem.appendChild(document.createTextNode(addition));
+
+					uList.appendChild(listItem);
+				}
+				loopSectionItem.innerHTML = ''; // clear html to add new list
+				loopSectionItem.appendChild(uList);				
+			}
+			
+			function checkDivision(x, y)
+			{
+				return (x % y == 0);
+			}
+			
+			function preFillFields() {
+				
+				$('#count').attr('value', defaultCount);
+			
+				$defaultWord = $('#defaultWord');
+				$defaultWord.attr('value', defaultMessage);
+				
+				$('div[id=numberText]').each(function() {
+					let $index = $(this).index("div");	
+					
+					$(this).find('#word').attr('value',words[$index - 1]);
+				})
+				
+			}
+
+			$('#greetingForm').on('submit', function(){
+				makeChanges();
+			});
+			
+			$('#addMore').on('click', function() {
+				
+				let $element = $('div[id=numberText]').last();
+				let $index = $element.index("div"); // index of previous last element			
+				
+				let $d = $('<div>');
+				$d.attr('id','numberText');
+				
+				let $b = $('<br>');
+				
+				let $s = document.createTextNode(" : ");
+			
+				let $n = $('<input>');
+				$n.attr('type','number');
+				$n.attr('id','number');
+				$n.attr('name','number');
+				
+				let $t = $('<input>');
+				$t.attr('type','text');
+				$t.attr('id','word');
+				$t.attr('name','word');
+
+				if (words[$index]) {
+					$t.attr('value',words[$index]);
+				}
+				
+				$d.append($n);
+				$d.append($s);
+				$d.append($t);
+				$d.append($b);
+				
+				$element.after($d);				
+			})
+			
+			$('#remove').on('click', function() {
+				$('div[id=numberText]').slice(3).last().remove();
+			});
+			preFillFields();
+			changeLoop();
+		</script>
+	</body> 
+	
+
+</html> 
