@@ -132,3 +132,8 @@ a:active {
 
 /*-----------------------------------------*/
 /* Links  */
+
+.formAlign label {
+  display: inline-block;
+  width: 200px;
+}
