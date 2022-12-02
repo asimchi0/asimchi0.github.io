@@ -28,21 +28,21 @@
 				<label for="lastName">Last name:</label>
 				<input type="text" id="lastName" name="lastName" required><br>
 				<label for="count">Count:</label>
-				<input type="number" id="count" name="count" value="140" min="10" max="140" required><br>
+				<input type="number" id="count" name="count" value="200" min="10" max="1000" required><br>
 				<label for="defaultWord">Default word :</label>
 				<input type="text" id="defaultWord" name="defaultWord"><br>
 				<label>Enter number : word pairs</label><br>
-				<div id="numberText">
-					<input type="number" id="number" name="number" value="3"> :
-					<input type="text" id="word" name="word"><br>
+				<div class="numberText">
+					<input type="number" class="number" id="number1" name="number" value="3"> :
+					<input type="text" class="word" id="word1" name="word"><br>
 				</div>
-				<div id="numberText">
-					<input type="number" id="number" name="number" value="5"> :
-					<input type="text" id="word" name="word"><br>
+				<div class="numberText">
+					<input type="number" class="number" id="number2" name="number" value="5"> :
+					<input type="text" class="word" id="word2" name="word"><br>
 				</div>
-				<div id="numberText">
-					<input type="number" id="number" name="number" value="7"> :
-					<input type="text" id="word" name="word"><br>
+				<div class="numberText">
+					<input type="number" class="number" id="number3" name="number" value="7"> :
+					<input type="text" class="word" id="word3" name="word"><br>
 				</div>
 				<input type="button" id="addMore" value="Add more"><br>
 				<input type="button" id="remove" value="Remove"><br>
@@ -58,7 +58,7 @@
 		<script>addFooter(1);</script>
 
 		<script>
-			const words = ["Boop", "Zap", "BANG!", "Test", "Taste", "Food", "Bee", "Dog", "Cat", "Bird", "I", "Run", "Out", "Of", "Ideas", "Nope", "None", "Nothing", "Still", "Zero", "Do", "Not", "Expect", "More", "Words", "Wait", "Minute", "Something", "Anything", "Everything", "Stop", "Clicking!", "Nooo", "Sdfghdf"];
+			const words = ["Boop", "Zap", "Bang", "Test", "Taste", "Food", "Bee", "Dog", "Cat", "Bird", "I", "Run", "Out", "Of", "Ideas", "Nope", "None", "Nothing", "Still", "Zero", "Do", "Not", "Expect", "More", "Words", "Wait", "Minute", "Something", "Anything", "Everything", "Stop", "Clicking!", "Nooo", "Sdfghdf"];
 			
 			const defaultMessage = "Beep";
 			
@@ -88,14 +88,13 @@
 				let numberWordPairs = {};
 				
 				
-				// it works, but it should be rewritten to reflect changed structure of grouping with div element.
-				$('input[id=number]').each(function() { // select all element with id number workaround from direct id selector
+				$('div[class=numberText]').each(function() { // select all element with numberText workaround from direct class selector
 				
-					let number = Number($(this).val()); // convert to number, '' converts into 0
+					let number = Number($(this).find('.number').val()); // convert to number, '' converts into 0
 					
 					if (number) { // have number 
 						
-						let word = $(this).next().val(); // collect word
+						let word = $(this).find('.word').val(); // collect word
 						
 						if (word) { // have word
 							numberWordPairs[number] = word; // add new pair
@@ -162,10 +161,10 @@
 				$defaultWord = $('#defaultWord');
 				$defaultWord.attr('value', defaultMessage);
 				
-				$('div[id=numberText]').each(function() {
+				$('div[class=numberText]').each(function() {
 					let $index = $(this).index("div");	
 					
-					$(this).find('#word').attr('value',words[$index - 1]);
+					$(this).find('.word').attr('value',words[$index - 1]);
 				})
 				
 			}
@@ -176,11 +175,11 @@
 			
 			$('#addMore').on('click', function() {
 				
-				let $element = $('div[id=numberText]').last();
+				let $element = $('div[class=numberText]').last();
 				let $index = $element.index("div"); // index of previous last element			
 				
 				let $d = $('<div>');
-				$d.attr('id','numberText');
+				$d.attr('class','numberText');
 				
 				let $b = $('<br>');
 				
@@ -188,12 +187,14 @@
 			
 				let $n = $('<input>');
 				$n.attr('type','number');
-				$n.attr('id','number');
+				$n.attr('class','number');
+				$n.attr('id','number'+$index);
 				$n.attr('name','number');
 				
 				let $t = $('<input>');
 				$t.attr('type','text');
-				$t.attr('id','word');
+				$t.attr('class','word');
+				$t.attr('id','word'+$index);
 				$t.attr('name','word');
 
 				if (words[$index]) {
@@ -209,10 +210,10 @@
 			})
 			
 			$('#remove').on('click', function() {
-				$('div[id=numberText]').slice(3).last().remove();
+				$('div[class=numberText]').slice(3).last().remove();
 			});
 			preFillFields();
-			changeLoop();
+			
 		</script>
 	</body> 
 	
