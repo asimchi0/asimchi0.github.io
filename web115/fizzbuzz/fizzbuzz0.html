@@ -30,7 +30,7 @@
 				<input type="submit" value="Submit">
 			</form>			
 			
-			<h2 id="loopHeader"></h2>
+			<div id="loopHeader"></div>
 			<div id="loopSection"></div>
 			
 		</section>
@@ -61,9 +61,13 @@
 			{
 				var message = "Beep Boop";
 				var loopText = "Beep Boop";
-				var loopHeaderItem = document.getElementById('loopHeader');
+				
+				var loopHeaderItem = document.getElementById('loopHeader');								
+				var headerLoop = document.createElement("h2");
+				headerLoop.textContent = message;
+				loopHeaderItem.appendChild(headerGreeting);								
+				
 				var loopSectionItem = document.getElementById('loopSection');
-				loopHeaderItem.textContent = message;				
 				
 				var loopLimit = prompt("How much times you like to " + message, "10");
 				

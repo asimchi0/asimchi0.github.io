@@ -30,7 +30,7 @@
 				<input type="submit" value="Submit">
 			</form>
 
-			<h2 id="loopHeader"></h2>
+			<div id="loopHeader"></div>
 			<div id="loopSection"></div>
 			
 		</section>
@@ -63,9 +63,12 @@
 				
 				var divisorToMessage = {3 : "Boop", 5 : "Zap", 7 : "BANG!"}; // default
 				
-				var loopHeaderItem = document.getElementById('loopHeader');
+				var loopHeaderItem = document.getElementById('loopHeader');								
+				var headerLoop = document.createElement("h2");
+				headerLoop.textContent = defaultMessage;
+				loopHeaderItem.appendChild(headerGreeting);				
+				
 				var loopSectionItem = document.getElementById('loopSection');
-				loopHeaderItem.textContent = defaultMessage;				
 				
 				var loopLimit = 140;
 				

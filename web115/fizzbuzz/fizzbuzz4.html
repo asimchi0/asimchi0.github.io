@@ -55,7 +55,7 @@
 				
 			</form>	
 
-			<h2 id="loopHeader"></h2>
+			<div id="loopHeader"></div>
 			<div id="loopSection"></div>
 			
 		</section>
@@ -126,9 +126,12 @@
 				
 				let divisorToMessage = collectNumberWordPairs(); // collect values;
 				
-				let loopHeaderItem = document.getElementById('loopHeader');
+				var loopHeaderItem = document.getElementById('loopHeader');								
+				var headerLoop = document.createElement("h2");
+				headerLoop.textContent = message;
+				loopHeaderItem.appendChild(headerGreeting);					
+				
 				let loopSectionItem = document.getElementById('loopSection');
-				loopHeaderItem.textContent = message;				
 				
 				let loopLimit = $('#count').val();				
 				
