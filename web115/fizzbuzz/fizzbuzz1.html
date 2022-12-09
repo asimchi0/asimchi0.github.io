@@ -27,6 +27,8 @@
 				<input type="text" id="middleInitial" name="middleInitial" maxlength="1"><br>
 				<label for="lastName">Last name:</label>
 				<input type="text" id="lastName" name="lastName" required><br>
+				<label for="count">Count:</label>
+				<input type="number" id="count" name="count" value="200" min="10" max="1000" required><br>
 				<input type="submit" value="Submit">
 			</form>	
 
@@ -70,7 +72,7 @@
 				
 				var loopSectionItem = document.getElementById('loopSection');
 				
-				var loopLimit = 140;
+				var loopLimit = $('#count').val();
 				
 				var uList = document.createElement("ol");			
 				
