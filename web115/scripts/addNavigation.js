@@ -3,7 +3,8 @@ var pages = { // declaring navigation pages; key - name on Page : value - link t
 	Introduction : "introduction.html",
 	Contract : "contract.html",
 	Brand : "brand.html",
-	TOC : "toc.html"
+	TOC : "toc.html",
+	"One Page" : "onepage.html"
 }
 var leveNavlOffset = "";
 
