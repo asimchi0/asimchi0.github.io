@@ -7,6 +7,7 @@
 		</script>
 		<![endif]-->
 		<link rel="stylesheet" href="../styles/default.css">
+		<script src="../scripts/jquery-3.6.1.min.js"></script>
 		<script src="../scripts/addNavigation.js"></script>
 		<script src="../scripts/addFooter.js"></script>		
 		<title>Alexei Simchiv-Mattson | WEB115 | Fizz Buzz 0</title>		
@@ -19,7 +20,7 @@
 				<h1 id="greeting">Welcome to Fizz Buzz</h1>
 			</header>
 			
-			<form id="greetingForm" action="javascript:void(0)"  method="post" onsubmit="makeChanges()">
+			<form id="greetingForm" action="javascript:void(0)"  method="post">
 				<label for="firstName">First name:</label>
 				<input type="text" id="firstName" name="firstName" required><br>
 				<label for="middleInitial">Middle Initial:</label>
@@ -77,6 +78,10 @@
 				loopSectionItem.innerHTML = result;
 				return false;
 			}
+			
+			$('#greetingForm').on('submit', function(){
+				makeChanges();
+			});
 		</script>
 	</body> 
 	
