@@ -1,7 +1,7 @@
 var footerLinks = {
 	"Github" : "https://github.com/asimchi0",
 	"Github Page" : "https://asimchi0.github.io/",
-	"Github Page WEB115" : "https://asimchi0.github.io/web115/",
+	"Github WEB115" : "https://asimchi0.github.io/web115/",
 	"Freecodecamp" : "https://www.freecodecamp.org/asimchi0",
 	"CodeAcademy" : "https://www.codecademy.com/profiles/asimchi0",
 	"JSFiddle" : "https://jsfiddle.net/user/asimchi0/fiddles/",
