@@ -137,3 +137,9 @@ a:active {
   display: inline-block;
   width: 200px;
 }
+
+/*-----------------------------------------*/
+/* Error  */
+.error {
+	color: Crimson;
+}
