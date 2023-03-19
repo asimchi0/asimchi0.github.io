@@ -53,6 +53,7 @@ function addLinks(footer)
 		var value = footerLinks[key];
 		var a = document.createElement("a");
 		a.setAttribute("href",value);
+		a.setAttribute("target","_blank");
 		a.appendChild(document.createTextNode(key));				
 		links.appendChild(a);
 		if(key != lastkey) links.appendChild(document.createTextNode(" | "));
