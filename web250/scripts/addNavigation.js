@@ -6,7 +6,7 @@ var pages = { // declaring navigation pages; key - name on Page : value - link t
 	//TOC : "toc.html",
 	//"One Page" : "onepage.html"
 }
-var leveNavlOffset = "";
+var levelNavOffset = "";
 
 function addLogo(navigation) // adding logo (in this case just test with link to starting page)
 {
@@ -14,13 +14,13 @@ function addLogo(navigation) // adding logo (in this case just test with link to
 	
 	var logo = document.createElement("div"); // create div element
 	var a = document.createElement("a");			
-	var logoLink  = leveNavlOffset + "index.html";
+	var logoLink  = levelNavOffset + "index.html";
 
 
 	a.setAttribute("href", logoLink); // setting ling to index page
 	var headerTemp = document.createElement("h1");
-	headerTemp.appendChild(document.createTextNode("Alexei's WEB250"));
-	a.appendChild(headerTemp); // adding created elelemnts together
+	headerTemp.appendChild(document.createTextNode("WEB250 | Alexei Simchiv-Mattson's Amphibious Shark"));
+	a.appendChild(headerTemp); // adding created elements together
 	logo.appendChild(a);
 	navigation.appendChild(logo);
 }
@@ -34,7 +34,7 @@ function addNavigationBar(navigation)
 		var navLi = document.createElement("li")
 		var a = document.createElement("a");
 		
-		value = leveNavlOffset + value;
+		value = levelNavOffset + value;
 
 		a.setAttribute("href", value);
 		
@@ -50,7 +50,7 @@ function addNavigation(level = 0)
 {
 	for (var i = 0; i < level; i++)
 	{
-		leveNavlOffset = "../" + leveNavlOffset;
+		levelNavOffset = "../" + levelNavOffset;
 	}	
 	
 	var body = document.body;
