@@ -15,8 +15,6 @@ let levelNavOffset = "";
 
 function addLogo(navigation) // adding logo (in this case just test with link to starting page)
 {
-	//let navigation = document.getElementById("navigation"); // get element with navigation id
-	
 	let logo = document.createElement("div"); // create div element
 	let a = document.createElement("a");			
 	let logoLink  = levelNavOffset + "index.html";
@@ -29,9 +27,9 @@ function addLogo(navigation) // adding logo (in this case just test with link to
 	logo.appendChild(a);
 	navigation.appendChild(logo);
 }
+
 function addNavigationBar(navigation)
-{
-	//let navigation = document.getElementById("navigation");
+{	
 	let navUl = document.createElement("ul");
 	for(let key in pages)
 	{
@@ -51,6 +49,7 @@ function addNavigationBar(navigation)
 	}			
 	navigation.appendChild(navUl);
 }
+
 function changePageTitle()
 {
 	const currentUrl = new URL(window.location.href);
@@ -76,7 +75,7 @@ function addNavigation(level = 0)
 		levelNavOffset = "../" + levelNavOffset;
 	}	
 	
-	let body = document.body;
+	let body = document.body;	
 	let headerNav = document.createElement("header");
 	let navigation = document.createElement("nav");
 	
