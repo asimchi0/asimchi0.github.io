@@ -1,4 +1,3 @@
-// <a href="?p=home.php">home</a>
 var pages = { // declaring navigation pages; key - name on Page : value - link to page
 	Home: "?p=home.php",
 	Introduction: "?p=introduction.php",
@@ -7,14 +6,17 @@ var pages = { // declaring navigation pages; key - name on Page : value - link t
 	FizzBuzz: "?p=fizzbuzz.php" //,
 	//Brand : "brand.html",
 	//TOC : "toc.html",
-	//"One Page" : "onepage.html"
 }
+
+let fullName = 'Alexei Simchiv-Mattson';
+let course = 'WEB250';
+let siteName = 'Amphibious Shark';
+let composedName = `${course} | ${fullName}'s ${siteName}`
+
 var levelNavOffset = "";
 
 function addLogo(navigation) // adding logo (in this case just test with link to starting page)
-{
-	//var navigation = document.getElementById("navigation"); // get element with navigation id
-	
+{	
 	var logo = document.createElement("div"); // create div element
 	var a = document.createElement("a");			
 	var logoLink = levelNavOffset + "?p=home.php";
@@ -22,16 +24,14 @@ function addLogo(navigation) // adding logo (in this case just test with link to
 
 	a.setAttribute("href", logoLink); // setting ling to index page
 	
-	var headerTemp = document.createElement("h1");
-	//headerTemp.appendChild(document.createTextNode("Alexei's WEB250"));
-	headerTemp.appendChild(document.createTextNode("WEB250 | Alexei Simchiv-Mattson's Amphibious Shark"));
+	var headerTemp = document.createElement("h1");	
+	headerTemp.appendChild(document.createTextNode(`${composedName}`));
 	a.appendChild(headerTemp); // adding created elements together
 	logo.appendChild(a);
 	navigation.appendChild(logo);
 }
 function addNavigationBar(navigation)
 {
-	//var navigation = document.getElementById("navigation");
 	var navUl = document.createElement("ul");
 	for(var key in pages)
 	{
@@ -51,6 +51,26 @@ function addNavigationBar(navigation)
 	}			
 	navigation.appendChild(navUl);
 }
+
+function changePageTitle()
+{
+	const currentUrl = new URL(window.location.href);
+	let searchParams = currentUrl.searchParams;	
+	let titlePart = ''
+	for (let key in pages)
+	{
+		let value = pages[key];			
+		let valueParsed = value.split('=');		
+		let lastValue = valueParsed.at(-1).toLowerCase();
+		
+		if (searchParams.get('p') === lastValue)
+		{			
+			titlePart = key;
+		}
+	}
+	document.title = `${composedName} | ${titlePart}`;
+}
+
 function addNavigation(level = 0)
 {
 	for (var i = 0; i < level; i++)
@@ -62,6 +82,7 @@ function addNavigation(level = 0)
 	var headerNav = document.createElement("header");
 	var navigation = document.createElement("nav");
 	
+	changePageTitle();
 	addLogo(navigation, level);
 	addNavigationBar(navigation, level);
 	

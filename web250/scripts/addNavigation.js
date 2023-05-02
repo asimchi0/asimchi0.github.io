@@ -1,38 +1,41 @@
-var pages = { // declaring navigation pages; key - name on Page : value - link to page
+let pages = { // declaring navigation pages; key - name on Page : value - link to page
 	Home : "index.html",
 	Introduction : "introduction.html",
 	Contract : "contract.html"//,
-	//Brand : "brand.html",
+	//Brand : "brand.html"//,
 	//TOC : "toc.html",
-	//"One Page" : "onepage.html"
 }
-var levelNavOffset = "";
+
+let fullName = 'Alexei Simchiv-Mattson';
+let course = 'WEB250';
+let siteName = 'Amphibious Shark';
+let composedName = `${course} | ${fullName}'s ${siteName}`
+
+let levelNavOffset = "";
 
 function addLogo(navigation) // adding logo (in this case just test with link to starting page)
 {
-	//var navigation = document.getElementById("navigation"); // get element with navigation id
-	
-	var logo = document.createElement("div"); // create div element
-	var a = document.createElement("a");			
-	var logoLink  = levelNavOffset + "index.html";
+	let logo = document.createElement("div"); // create div element
+	let a = document.createElement("a");			
+	let logoLink  = levelNavOffset + "index.html";
 
 
 	a.setAttribute("href", logoLink); // setting ling to index page
-	var headerTemp = document.createElement("h1");
-	headerTemp.appendChild(document.createTextNode("WEB250 | Alexei Simchiv-Mattson's Amphibious Shark"));
+	let headerTemp = document.createElement("h1");
+	headerTemp.appendChild(document.createTextNode(`${composedName}`));
 	a.appendChild(headerTemp); // adding created elements together
 	logo.appendChild(a);
 	navigation.appendChild(logo);
 }
+
 function addNavigationBar(navigation)
-{
-	//var navigation = document.getElementById("navigation");
-	var navUl = document.createElement("ul");
-	for(var key in pages)
+{	
+	let navUl = document.createElement("ul");
+	for(let key in pages)
 	{
-		var value = pages[key];				
-		var navLi = document.createElement("li")
-		var a = document.createElement("a");
+		let value = pages[key];				
+		let navLi = document.createElement("li")
+		let a = document.createElement("a");
 		
 		value = levelNavOffset + value;
 
@@ -46,17 +49,38 @@ function addNavigationBar(navigation)
 	}			
 	navigation.appendChild(navUl);
 }
+
+function changePageTitle()
+{
+	const currentUrl = new URL(window.location.href);
+	let pathname = currentUrl.pathname;
+	let pathnameParsed = pathname.split('/');
+	let lastPathname = pathnameParsed.at(-1).toLowerCase();
+	let titlePart = ''
+	for (let key in pages)
+	{
+		let value = pages[key];		
+		if (lastPathname === value)
+		{			
+			titlePart = key;
+		}
+	}
+	document.title = `${composedName} | ${titlePart}`;
+}
+
 function addNavigation(level = 0)
 {
-	for (var i = 0; i < level; i++)
+	for (let i = 0; i < level; i++)
 	{
 		levelNavOffset = "../" + levelNavOffset;
 	}	
 	
-	var body = document.body;
-	var headerNav = document.createElement("header");
-	var navigation = document.createElement("nav");
+	let body = document.body;	
+	let headerNav = document.createElement("header");
+	let navigation = document.createElement("nav");
 	
+
+	changePageTitle()
 	addLogo(navigation, level);
 	addNavigationBar(navigation, level);
 	
