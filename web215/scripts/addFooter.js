@@ -46,7 +46,7 @@ function addLinks(footer)
 	let links = document.createElement("div");
 	// extra code to not add separator for last element.
 	let dictLength = Object.keys(footerLinks).length;
-	let lastkey = Object.keys(footerLinks)[dictLength-1];
+	let lastKey = Object.keys(footerLinks)[dictLength-1];
 	
 	for (let key in footerLinks)
 	{
@@ -56,7 +56,7 @@ function addLinks(footer)
 		a.setAttribute("target","_blank");
 		a.appendChild(document.createTextNode(key));				
 		links.appendChild(a);
-		if(key != lastkey) links.appendChild(document.createTextNode(" | "));
+		if(key != lastKey) links.appendChild(document.createTextNode(" | "));
 	}
 	footer.appendChild(links);
 }
