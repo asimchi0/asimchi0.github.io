@@ -4,8 +4,8 @@ var pages = { // declaring navigation pages; key - name on Page : value - link t
 	Contract: "?p=contract.php",
 	Template: "?p=template.php" ,
 	FizzBuzz: "?p=fizzbuzz.php" ,
-	Brand : "?p=brand.php"//,
-	//TOC : "toc.html",
+	Brand : "?p=brand.php",
+	ATOC : "?p=atoc.php"
 }
 
 let fullName = 'Alexei Simchiv-Mattson';

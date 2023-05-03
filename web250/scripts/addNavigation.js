@@ -2,8 +2,8 @@ let pages = { // declaring navigation pages; key - name on Page : value - link t
 	Home : "index.html",
 	Introduction : "introduction.html",
 	Contract : "contract.html",
-	Brand : "brand.html"//,
-	//TOC : "toc.html",
+	Brand : "brand.html",
+	ATOC : "atoc.html",
 }
 
 let fullName = 'Alexei Simchiv-Mattson';
