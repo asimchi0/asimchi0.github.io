@@ -16,16 +16,18 @@
 	<body>
 		<script>addNavigation();</script>
 		<hr />
-		<section>
-			<!-- dynamic content goes here -->
-			<?php
-				$sPage = $_GET["p"];
-				//echo ("You picked the page: " . $sPage); 
-		
-				if($sPage == "") {  $sPage = "home.php"; }
-				include($sPage);
-			?>
-		</section>
+		<main>
+			<section>
+				<!-- dynamic content goes here -->
+				<?php
+					$sPage = $_GET["p"];
+					//echo ("You picked the page: " . $sPage); 
+			
+					if($sPage == "") {  $sPage = "home.php"; }
+					include($sPage);
+				?>
+			</section>
+		</main>
 		<hr />
 		<script>addFooter();</script>
 	</body>

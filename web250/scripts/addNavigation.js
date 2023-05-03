@@ -1,8 +1,8 @@
 let pages = { // declaring navigation pages; key - name on Page : value - link to page
 	Home : "index.html",
 	Introduction : "introduction.html",
-	Contract : "contract.html"//,
-	//Brand : "brand.html"//,
+	Contract : "contract.html",
+	Brand : "brand.html"//,
 	//TOC : "toc.html",
 }
 

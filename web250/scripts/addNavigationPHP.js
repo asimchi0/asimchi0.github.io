@@ -3,8 +3,8 @@ var pages = { // declaring navigation pages; key - name on Page : value - link t
 	Introduction: "?p=introduction.php",
 	Contract: "?p=contract.php",
 	Template: "?p=template.php" ,
-	FizzBuzz: "?p=fizzbuzz.php" //,
-	//Brand : "brand.html",
+	FizzBuzz: "?p=fizzbuzz.php" ,
+	Brand : "?p=brand.php"//,
 	//TOC : "toc.html",
 }
 
