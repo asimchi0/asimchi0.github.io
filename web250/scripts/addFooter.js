@@ -8,7 +8,7 @@ let footerLinks = {
 	"LinkedIn Learning" : "https://www.linkedin.com/learning/?u=76141674"
 };
 
-let tagline = '"Keep your cool, even without water."';
+let tagline = '"Keep your cool even without water."';
 
 let levelFooterOffset = "";
 
