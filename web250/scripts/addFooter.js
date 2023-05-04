@@ -28,9 +28,11 @@ function addValidation(footer)
 	let validation = document.createElement("div");
 	let html = document.createElement("a");
 	html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href)
+	html.setAttribute("target","_blank");
 	html.appendChild(addValImage(levelFooterOffset +"images/button_validation_html5.png", "Valid HTML 5"));
-	let css = document.createElement("a");
+	let css = document.createElement("a");	
 	css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+	css.setAttribute("target","_blank");
 	css.appendChild(addValImage(levelFooterOffset + "images/button_validation_css.png", "Valid CSS"));
 	validation.appendChild(html);
 	validation.appendChild(css);

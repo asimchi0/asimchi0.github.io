@@ -113,7 +113,7 @@ footer div {text-align:center;}
 
 /* unvisited link */
 a:link {
-	color: red;
+	color: rgb(203, 255, 72);
 	text-decoration: none;
 }
 
@@ -125,7 +125,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-	color: hotpink;
+	color: rgb(145, 255, 184);
 	text-decoration: none;
 }
 
@@ -146,5 +146,5 @@ a:active {
 /*-----------------------------------------*/
 /* Error  */
 .error {
-	color: Crimson;
+	color: rgb(73, 161, 136);
 }
