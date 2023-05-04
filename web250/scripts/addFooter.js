@@ -7,6 +7,9 @@ let footerLinks = {
 	"JSFiddle" : "https://jsfiddle.net/user/asimchi0/fiddles/",
 	"LinkedIn Learning" : "https://www.linkedin.com/learning/?u=76141674"
 };
+
+let tagline = '"Keep your cool, even without water."';
+
 let levelFooterOffset = "";
 
 function addValImage(src,alt)
@@ -61,6 +64,21 @@ function addLinks(footer)
 	footer.appendChild(links);
 }
 
+function addTagline(footer) 
+{
+	let moto = document.createElement("div");
+	moto.appendChild(document.createTextNode(`${tagline}`));
+	footer.appendChild(moto);
+}
+
+function addSpacing(footer, spacing)
+{
+	for (let i = 0; i < spacing; i++)
+	{
+		footer.appendChild(document.createElement("br"));
+	}
+}
+
 function addFooter(level = 0)
 {
 	for (let i = 0; i < level; i++)
@@ -70,11 +88,12 @@ function addFooter(level = 0)
 	
 	let body = document.body;
 	let footer = document.createElement("footer");
+	addTagline(footer);
+	addSpacing(footer, 2);
 	addLinks(footer);
-	footer.appendChild(document.createElement("br"));
-	footer.appendChild(document.createElement("br"));
+	addSpacing(footer, 2);
 	addDesignBy(footer);
-	footer.appendChild(document.createElement("br"));
+	addSpacing(footer, 1);
 	addValidation(footer, level);			
 	body.appendChild(footer);
 }
