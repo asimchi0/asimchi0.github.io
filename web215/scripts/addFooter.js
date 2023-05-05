@@ -7,6 +7,9 @@ let footerLinks = {
 	"JSFiddle" : "https://jsfiddle.net/user/asimchi0/fiddles/",
 	"LinkedIn Learning" : "https://www.linkedin.com/learning/?u=76141674"
 };
+
+let tagline = '"Wiggling out of any tight situation with the right cable at hand"';
+
 let levelFooterOffset = "";
 
 function addValImage(src,alt)
@@ -25,9 +28,11 @@ function addValidation(footer)
 	let validation = document.createElement("div");
 	let html = document.createElement("a");
 	html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href)
+	html.setAttribute("target","_blank");
 	html.appendChild(addValImage(levelFooterOffset +"images/button_validation_html5.png", "Valid HTML 5"));
 	let css = document.createElement("a");
 	css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+	css.setAttribute("target","_blank");
 	css.appendChild(addValImage(levelFooterOffset + "images/button_validation_css.png", "Valid CSS"));
 	validation.appendChild(html);
 	validation.appendChild(css);
@@ -61,6 +66,21 @@ function addLinks(footer)
 	footer.appendChild(links);
 }
 
+function addTagline(footer) 
+{
+	let moto = document.createElement("div");
+	moto.appendChild(document.createTextNode(`${tagline}`));
+	footer.appendChild(moto);
+}
+
+function addSpacing(footer, spacing)
+{
+	for (let i = 0; i < spacing; i++)
+	{
+		footer.appendChild(document.createElement("br"));
+	}
+}
+
 function addFooter(level = 0)
 {
 	for (let i = 0; i < level; i++)
@@ -70,11 +90,12 @@ function addFooter(level = 0)
 	
 	let body = document.body;
 	let footer = document.createElement("footer");
+	addTagline(footer);
+	addSpacing(footer, 2);
 	addLinks(footer);
-	footer.appendChild(document.createElement("br"));
-	footer.appendChild(document.createElement("br"));
+	addSpacing(footer, 2);
 	addDesignBy(footer);
-	footer.appendChild(document.createElement("br"));
+	addSpacing(footer, 1);
 	addValidation(footer, level);			
 	body.appendChild(footer);
 }
