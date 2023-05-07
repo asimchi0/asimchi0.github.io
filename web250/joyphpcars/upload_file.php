@@ -13,13 +13,13 @@ else
   echo "VIN: ".$vin."<br>";
   echo "Stored temporarily as: " . $_FILES["file"]["tmp_name"]."<br><BR>". "\n";
   $currentfolder =  getcwd();
-  echo "This script is running in: " .$currentfolder."<br>". "\n";
+  //echo "This script is running in: " .$currentfolder."<br>". "\n";
   $target_path = getcwd() ."/uploads/";
-  echo "The uploaded file will be stored in the folder: ".$target_path."<br>". "\n";
+  //echo "The uploaded file will be stored in the folder: ".$target_path."<br>". "\n";
 
   $target_path = $target_path . basename( $_FILES['file']['name']); 
   $imagename = "uploads/". basename( $_FILES['file']['name']); 
-  echo "The full file name of the uploaded file is '". $target_path."'<br>". "\n";
+  //echo "The full file name of the uploaded file is '". $target_path."'<br>". "\n";
 
   echo "The relative name of the file for use in the IMG tag is " . $imagename ."<br><br>". "\n";;
 
@@ -41,7 +41,7 @@ if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
    echo "'>Add another image for this car </a></p>\n";
 /* Try to insert the new car into the database */
 if ($result = $mysqli->query($query)) {
-        echo "<p>You have successfully entered $target_path into the database.</P>\n";
+        echo "<p>You have successfully entered $imagename into the database.</P>\n";
        
     }
     else
