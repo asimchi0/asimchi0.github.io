@@ -4,5 +4,5 @@
 	<li><a target="_blank" href="index.html">HTML version of website</a></li>
 	<li><a target="_blank" href="./superduper_php/index.php">Dynamic PHP page</a></li>
 	<li><a target="_blank" href="./superduper_static/index.htm">Static HTML page</a></li>
-	<!-- <li><a target="_blank" href="./joy/">Joy of PHP website</a></li> -->
+	<li><a target="_blank" href="./joyphpcars/index.php">Joy of PHP website</a></li>
 </ul>	
