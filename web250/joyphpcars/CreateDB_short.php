@@ -4,8 +4,7 @@
  * Demonstrates how to create a database, create a table, and insert records.
  */
 
-$mysqli = new mysqli('localhost', 'root', 'mypassword' );
-
+ include 'db.php';
 
    if (!$mysqli) { 
       die('Could not connect: ' . mysql_error()); 
@@ -22,7 +21,7 @@ else
     echo "Error creating Cars database: " . mysql_error()."<br>";
 }
 //select a database to work with
-$mysqli->select_db("Cars");
+$mysqli->select_db($dbName);
    Echo ("Selected the Cars database");
 
 $query = " CREATE TABLE INVENTORY 

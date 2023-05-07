@@ -54,13 +54,12 @@ machine.&nbsp; Here are the links to get started.&nbsp; </p>
 <p>A really simple PHP page --&gt; <a href="simple.php">simple.php</a></p>
 <h2>Database Related Scripts</h2>
 <p><a href="CreateDB.php">Create the Cars Database</a> (Before you can use this, 
-you'll need to edit line 8 with your username and password)</p>
+modify database connection file)</p>
 
 <p><a href="ModifyDB.php">Modify the Inventory Table</a> (This script adds the
-<strong>Primary_Image</strong> column.&nbsp; Again, edit line 8 with your 
-username and password)</p>
-<p><a href="CreateImagesTable.php">Create the Images Table</a> (Again, edit line 
-8 with your username and password)</p>
+<strong>Primary_Image</strong> column.&nbsp;)</p>
+<p><a href="CreateImagesTable.php">Create the Images Table</a></p>
+<p><a href="DropDB.php">Clear Cars Database (drops all tables)</a></p>
 <p><img alt="Joy of PHP" height="313" src="smallcover.jpg" width="196" /></p>
 
 </body>

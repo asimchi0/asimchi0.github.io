@@ -13,10 +13,10 @@ include 'db.php';
 
 
 //select a database to work with
-$mysqli->select_db("Cars");
+$mysqli->select_db($dbName);
    Echo ("Selected the Cars database <br>");
 
-$query = " CREATE TABLE IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
+$query = " CREATE TABLE IF NOT EXISTS IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
 //echo "<p>***********</p>";
 //echo $query ;
 //echo "<p>***********</p>";
@@ -28,6 +28,6 @@ else
 {
     echo "<p>Error: " . mysqli_error($mysqli);
 }
- echo "<br><br><a href='index.html'>Home</a>";
+ echo "<br><br><a href='index.php'>Home</a>";
 $mysqli->close();
 ?>

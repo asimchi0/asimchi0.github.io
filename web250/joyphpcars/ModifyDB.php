@@ -11,7 +11,7 @@ include 'db.php';
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
-$mysqli->select_db("Cars");
+$mysqli->select_db($dbName);
    Echo ("Selected the Cars database<br>");
 
 $query = "ALTER TABLE `inventory` ADD `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
@@ -27,5 +27,5 @@ else
     echo "<p>Error: </p>" . $mysqli->error."<br>";;
 }
 $mysqli->close();
-echo "<br><br><a href='index.html'>Home</a>";
+echo "<br><br><a href='index.php'>Home</a>";
 ?>
