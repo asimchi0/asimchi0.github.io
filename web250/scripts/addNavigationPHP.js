@@ -4,6 +4,7 @@ var pages = { // declaring navigation pages; key - name on Page : value - link t
 	Contract: "?p=contract.php",
 	Template: "?p=template.php" ,
 	FizzBuzz: "?p=fizzbuzz.php" ,
+	DBTest: "?p=dbtest.php",
 	Brand : "?p=brand.php",
 	ATOC : "?p=atoc.php"
 }
