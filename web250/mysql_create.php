@@ -1,5 +1,5 @@
 <?php
-echo '<a href="index.php?p=dbtest.php">Back</a> <br>';
+include 'view_back.php';
 
 include 'mysql_db.php';
 

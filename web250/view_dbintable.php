@@ -51,7 +51,7 @@ background-color:teal;
 <h1>View data</h1>
 <h3>Complete Inventory</h3>
  <?php 
-echo '<a href="index.php?p=dbtest.php">Back</a> <br>';
+include 'view_back.php';
 
 include 'mysql_db.php';
 $query = "SELECT * FROM `" . $inventoryTable . "` ORDER BY Make";
